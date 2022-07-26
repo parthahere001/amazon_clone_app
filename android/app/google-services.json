@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "71358068402",
+    "project_id": "niel-1fa6e",
+    "storage_bucket": "niel-1fa6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71358068402:android:e55e4a91f0921c8623bbab",
+        "android_client_info": {
+          "package_name": "com.niel.shopping.niel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71358068402-ceq562ar5ibq0j6bgonbhdr4un6h294s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.niel.shopping.niel",
+            "certificate_hash": "68ca173b8a6cb0d074ec448413216c73232d774f"
+          }
+        },
+        {
+          "client_id": "71358068402-1ch03st2680il3eojhnpeiqlh809dlco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUrwqRlOBJ-K2wQLVgmloEifKYQB0G-DU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71358068402-1ch03st2680il3eojhnpeiqlh809dlco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
