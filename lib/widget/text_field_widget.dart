@@ -12,37 +12,65 @@ class TextFieldWidget extends StatefulWidget {
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
+  late FocusNode focusNode;
+  bool isInFocus = false;
+
   @override
+  void initState() {
+    super.initState();
+    focusNode = FocusNode();
+
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        setState(() {
+          isInFocus = false;
+        }
+
+        );
+      }
+    });
+  }
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(bottom: 15),
           child: Text(widget.title, style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 17,
           ),),
         ),
-        TextField(
-          obscureText: widget.obscureText,
-          maxLines: 1,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
+        Container(
+          decoration:  BoxDecoration(
+            boxShadow: [
+              isInFocus
+              ?  BoxShadow(color: Colors.orange.withOpacity(0.4), blurRadius: 8, spreadRadius: 2)
+                  : BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 8, spreadRadius: 2),
+          ]),
+          child: TextField(
+            obscureText: widget.obscureText,
+            controller: widget.controller,
+            maxLines: 1,
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              hintText: widget.hintText,
 
-            border:  OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4),
-              borderSide: const BorderSide(
-                  color: Colors.grey,
-                  width: 1,
+              border:  OutlineInputBorder(
+                borderRadius: BorderRadius.circular(4),
+                borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 1,
+                ),
               ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4),
-              borderSide: const BorderSide(
-                color: Colors.orange,
-                width: 1,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(4),
+                borderSide: const BorderSide(
+                  color: Colors.orange,
+                  width: 1,
+                ),
               ),
             ),
           ),
