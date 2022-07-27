@@ -54,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.network(amazonLogo,
-                    height: screenSize.height*0.10,),
+                    height: screenSize.height*0.085,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

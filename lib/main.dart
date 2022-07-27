@@ -36,6 +36,7 @@ class AmazonClone extends StatelessWidget {
         else if(user.hasData) {
 
 
+
           return const ScreenLayout();//ElevatedButton(onPressed: () { FirebaseAuth.instance.signOut();}, child: const Text("Sign-Out"));
 
         }
