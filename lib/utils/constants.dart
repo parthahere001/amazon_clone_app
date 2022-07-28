@@ -1,4 +1,8 @@
-const double kAppBarHeight = 80;
+import 'package:flutter/material.dart';
+import 'package:niel/screens/home_screen.dart';
+
+
+const double kAppBarHeight = 100;
 
 const String amazonLogoUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png";
@@ -47,6 +51,20 @@ const List<String> adItemNames = [
   "Recharge",
   "Rewards",
   "Pay Bills"
+];
+
+
+const List<Widget> screens = [
+  HomeScreen(),
+  Center(
+    child: Text("Account Screen"),
+  ),
+  Center(
+    child: Text("Cart Screen"),
+  ),
+  Center(
+    child: Text("More Screen"),
+  ),
 ];
 
 //Dont even attemp to scroll to the end of this manually lmao
