@@ -23,6 +23,32 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     Size screenSize = utils.getScreenSize();
     double smallAdHeight = screenSize.width/5;
     return GestureDetector(
+      // onPanUpdate: (details) {
+      //   if (details.delta.dx > 0)
+      //     {
+      //       if (currentAd == (largeAds.length-1))
+      //       {
+      //         currentAd=-1;
+      //       }
+      //
+      //       setState(() {
+      //         currentAd++;
+      //
+      //       });
+      //
+      //     }
+      //   else{
+      //     if (currentAd == -1)
+      //       {
+      //         currentAd=largeAds.length-1;
+      //       }
+      //
+      //       setState(() {
+      //         currentAd--;
+      //
+      //
+      //   });
+      // }},
       onHorizontalDragEnd: (_) {
         if (currentAd == (largeAds.length-1))
           {
@@ -34,6 +60,17 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
         });
       },
+      // onHorizontalDragStart: (_) {
+      //   if (currentAd == -1)
+      //   {
+      //     currentAd=largeAds.length-1;
+      //   }
+      //
+      //   setState(() {
+      //     currentAd--;
+      //
+      //   });
+      // },
       child: Column(
         children: [
           // Image with gradient
