@@ -2,6 +2,8 @@
 
 An Ecommerce App
 
+More specifically an Amazon android app clone
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -15,3 +17,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # amazon_clone_app
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+
