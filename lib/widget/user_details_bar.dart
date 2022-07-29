@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/model/user_details_model.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/utils/constants.dart';
 
@@ -7,7 +8,8 @@ import '../utils/utils.dart';
 
 class UserDetailsBar extends StatelessWidget {
   final double offset;
-  const UserDetailsBar({Key? key, required this.offset}) : super(key: key);
+  final UserDetailsModel userDetails;
+  const UserDetailsBar({Key? key, required this.offset, required this.userDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class UserDetailsBar extends StatelessWidget {
               Padding(padding: EdgeInsets.only(right: 8)),
               Icon(Icons.location_on_outlined, color: Colors.grey[900],),
               SizedBox(width: screenSize.width * 0.75,
-                child: Text("Deliver to User - some address", style: TextStyle(color: Colors.grey[900]),maxLines: 1, overflow: TextOverflow.ellipsis,)),
+                child: Text("Deliver to ${userDetails.name} - ${userDetails.address}", style: TextStyle(color: Colors.grey[900]),maxLines: 1, overflow: TextOverflow.ellipsis,)),
             ],
         ),
           ),),

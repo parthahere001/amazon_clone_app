@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/model/user_details_model.dart';
 import 'package:niel/utils/constants.dart';
 import 'package:niel/widget/banner_ad_widget.dart';
 import 'package:niel/widget/products_showcase_list_view.dart';
@@ -69,7 +70,7 @@ void dispose(){
              ],
            ),
          ),
-         UserDetailsBar(offset: offset)
+         UserDetailsBar(offset: offset, userDetails: UserDetailsModel(name: "Ajay", address: "somewhere"),)
        ],
      )
     );

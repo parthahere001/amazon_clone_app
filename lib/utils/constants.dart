@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/screens/account_screen.dart';
 import 'package:niel/screens/home_screen.dart';
 
 
@@ -56,9 +57,7 @@ const List<String> adItemNames = [
 
 const List<Widget> screens = [
   HomeScreen(),
-  Center(
-    child: Text("Account Screen"),
-  ),
+AccountScreen(),
   Center(
     child: Text("Cart Screen"),
   ),
