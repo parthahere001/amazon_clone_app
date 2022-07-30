@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:niel/screens/account_screen.dart';
+import 'package:niel/screens/cart_screen.dart';
 import 'package:niel/screens/home_screen.dart';
+
+import '../widget/simple_product_widget.dart';
 
 
 const double kAppBarHeight = 100;
@@ -53,14 +56,23 @@ const List<String> adItemNames = [
   "Rewards",
   "Pay Bills"
 ];
+List<Widget> testChildren = [
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+
+];
 
 
 const List<Widget> screens = [
   HomeScreen(),
 AccountScreen(),
-  Center(
-    child: Text("Cart Screen"),
-  ),
+CartScreen(),
   Center(
     child: Text("More Screen"),
   ),

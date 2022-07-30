@@ -22,17 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ScrollController controller = ScrollController();
   double offset =0;
 
-  List<Widget> testChildren = [
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-    SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
 
-  ];
 
   @override
   void initState() {
