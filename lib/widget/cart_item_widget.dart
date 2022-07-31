@@ -23,18 +23,17 @@ class CartItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(child: Row(
+          Expanded(flex: 5,child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 width: screenSize.width/3,
-                child: Image.network("https://rukminim1.flixcart.com/image/332/398/kqv8vww0/shoe/u/r/q/10-capsnew-10-hotstyle-black-black-original-imag4s3fkbpjzvfx.jpeg?q=50"),
+                child: Align(alignment: Alignment.topLeft,  child: Image.network("https://rukminim1.flixcart.com/image/332/398/kqv8vww0/shoe/u/r/q/10-capsnew-10-hotstyle-black-black-original-imag4s3fkbpjzvfx.jpeg?q=50")),
               ),
-             ProductInformationWidget(productName: "Black Shoes", cost: 500, sellerName: "Shoe Wala")
-              
+             ProductInformationWidget(productName: "Black Shoes", cost: 500.30, sellerName: "Shoe Wala")
+
             ],
           ),
-          flex: 5,
           ),
           Expanded(child: Container(
             color: Colors.blue,

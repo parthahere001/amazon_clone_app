@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/widget/cost_widget.dart';
 
 import '../utils/utils.dart';
 
@@ -17,16 +18,22 @@ class ProductInformationWidget extends StatelessWidget {
     return SizedBox(
       width: screenSize.width/2,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+       // mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(productName,
             maxLines: 2,
             style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 20,
+            fontSize: 16,
+            letterSpacing: 0.7,
             overflow: TextOverflow.ellipsis,
-          ), )
+          ), ),
+          Align(alignment: Alignment.centerLeft,  child:
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 57),
+            child: CostWidget(color: Colors.black, cost: cost),
+          )),
         ],
       ),
     );
