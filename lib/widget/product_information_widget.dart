@@ -10,12 +10,16 @@ class ProductInformationWidget extends StatelessWidget {
   final String sellerName;
 
 
-  const ProductInformationWidget({Key? key,required this.productName, required this.cost, required this.sellerName }) : super(key: key);
+ const  ProductInformationWidget({Key? key,required this.productName, required this.cost, required this.sellerName }) : super(key: key);
+
+
+
 
   @override
   Widget build(BuildContext context) {
     final utils = Utils();
     Size screenSize = utils.getScreenSize();
+    SizedBox spaceThingy = const SizedBox(height: 7,);
     return SizedBox(
       width: screenSize.width/2,
       child: Column(
@@ -30,11 +34,13 @@ class ProductInformationWidget extends StatelessWidget {
             letterSpacing: 0.9,
             overflow: TextOverflow.ellipsis,
           ), ),
+          spaceThingy,
           Align(alignment: Alignment.centerLeft,  child:
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 57),
             child: CostWidget(color: Colors.black, cost: cost),
           )),
+          spaceThingy,
           Padding(
             padding: const EdgeInsets.only(left: 27),
             child: RichText(text: TextSpan(children: [

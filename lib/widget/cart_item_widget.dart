@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:niel/model/product_model.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/widget/custom_square_button.dart';
 import 'package:niel/widget/product_information_widget.dart';
+import 'package:niel/widget/custom_simple_rounded_button.dart';
 
 
 import '../utils/utils.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({Key? key}) : super(key: key);
+  final ProductModel product;
+  const CartItemWidget({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final utils = Utils();
     Size screenSize = utils.getScreenSize();
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: EdgeInsets.all(20),
       height: screenSize.height/2,
       width: screenSize.width,
       decoration: BoxDecoration(
@@ -25,14 +28,16 @@ class CartItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(flex: 5,child: Row(
+          Expanded(flex: 2,child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 width: screenSize.width/3,
-                child: Align(alignment: Alignment.topLeft,  child: Center(child: Image.network("https://rukminim1.flixcart.com/image/332/398/kqv8vww0/shoe/u/r/q/10-capsnew-10-hotstyle-black-black-original-imag4s3fkbpjzvfx.jpeg?q=50"))),
+                child: Align(alignment: Alignment.topLeft,  child: Center(child: Image.network(product.url),
+                ),
+                ),
               ),
-             ProductInformationWidget(productName: "Black Shoes", cost: 500.30, sellerName: "Shoe Wala")
+             ProductInformationWidget(productName: product.productName, cost: product.cost, sellerName: product.sellerName)
 
             ],
           ),
@@ -42,24 +47,45 @@ class CartItemWidget extends StatelessWidget {
               CustomSquareButton(child:
               Icon(Icons.remove),
                   onPressed: () {},
-                  color: Colors.grey[500]!,
-                  dimension: 50),
+                  color: backgroundColor,
+                  dimension: 40),
               CustomSquareButton(child:
-              Text("1"),
+              Text("1", style: TextStyle(
+                color: activeCyanColor
+               ),
+              ),
                   onPressed: () {},
-                  color: activeCyanColor,
-                  dimension: 50),
+                  color: Colors.white,
+                  dimension: 40),
               CustomSquareButton(child:
               Icon(Icons.add),
                   onPressed: () {},
-                  color: Colors.grey[500]!,
-                  dimension: 50),
+                  color: backgroundColor,
+                  dimension: 40),
             ],
           ),
-            flex: 3,
+            flex: 1,
           ),
-          Expanded(child: Container(
-            color: Colors.green,
+          Expanded(child: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    CustomSimpleRoundedButton(onPressed: () {}, text: "Delete",),
+                    SizedBox(width: 7,),
+                    CustomSimpleRoundedButton(onPressed: () {}, text: "Save For Later",),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Align(alignment: Alignment.centerLeft,
+                      child: Text("See more like this", style: TextStyle(color: activeCyanColor),)),
+                )
+              ]
+
+            ),
           ),
             flex: 1,
           ),

@@ -3,6 +3,7 @@ import 'package:niel/screens/account_screen.dart';
 import 'package:niel/screens/cart_screen.dart';
 import 'package:niel/screens/home_screen.dart';
 
+import '../screens/more_screen.dart';
 import '../widget/simple_product_widget.dart';
 
 
@@ -73,9 +74,7 @@ const List<Widget> screens = [
   HomeScreen(),
 AccountScreen(),
 CartScreen(),
-  Center(
-    child: Text("More Screen"),
-  ),
+  MoreScreen(),
 ];
 
 //Dont even attemp to scroll to the end of this manually lmao
