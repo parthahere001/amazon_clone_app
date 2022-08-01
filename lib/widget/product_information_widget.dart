@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/utils/color_themes.dart';
 import 'package:niel/widget/cost_widget.dart';
 
 import '../utils/utils.dart';
@@ -25,8 +26,8 @@ class ProductInformationWidget extends StatelessWidget {
             maxLines: 2,
             style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 16,
-            letterSpacing: 0.7,
+            fontSize: 15,
+            letterSpacing: 0.9,
             overflow: TextOverflow.ellipsis,
           ), ),
           Align(alignment: Alignment.centerLeft,  child:
@@ -34,6 +35,16 @@ class ProductInformationWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 57),
             child: CostWidget(color: Colors.black, cost: cost),
           )),
+          Padding(
+            padding: const EdgeInsets.only(left: 27),
+            child: RichText(text: TextSpan(children: [
+              TextSpan(text: "Sold By ", style: TextStyle(
+                color: Colors.grey[700], fontSize: 14,
+              ),), TextSpan(text: sellerName, style: TextStyle(
+                color: activeCyanColor, fontSize: 14,
+              ),),
+            ]),),
+          ),
         ],
       ),
     );
