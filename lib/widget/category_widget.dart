@@ -15,7 +15,7 @@ class CategoryWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(7),
 
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 8, spreadRadius: 1)
+            BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 9, spreadRadius: 1)
             ]
         ),
         child: Padding(
