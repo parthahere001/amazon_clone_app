@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/screens/results_screen.dart';
 import 'package:niel/screens/search_screen.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/utils/constants.dart';
@@ -41,6 +42,9 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                 child: Container(
                   decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 8, spreadRadius: 1, offset: Offset(0, 5),), ]),
                   child: TextField(
+                    onSubmitted: (String query) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsScreen(query: query),),);
+                    },
                     readOnly: isReadOnly,
                     onTap: () {
                       if (!isReadOnly) {

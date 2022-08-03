@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:niel/layout/screen_layout.dart';
+import 'package:niel/screens/results_screen.dart';
 import 'package:niel/screens/sign_in_screen.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,7 +39,7 @@ class AmazonClone extends StatelessWidget {
 
 
           return const ScreenLayout();//ElevatedButton(onPressed: () { FirebaseAuth.instance.signOut();}, child: const Text("Sign-Out"));
-
+         //return ResultsScreen(query: "wwe");
         }
         else {
           return const SignInScreen();
