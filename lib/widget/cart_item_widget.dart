@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:niel/model/product_model.dart';
+import 'package:niel/screens/product_screen.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/widget/custom_square_button.dart';
 import 'package:niel/widget/product_information_widget.dart';
 import 'package:niel/widget/custom_simple_rounded_button.dart';
 
 
+import '../screens/results_screen.dart';
 import '../utils/utils.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -28,18 +30,25 @@ class CartItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(flex: 2,child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: screenSize.width/3,
-                child: Align(alignment: Alignment.topLeft,  child: Center(child: Image.network(product.url),
-                ),
-                ),
-              ),
-             ProductInformationWidget(productName: product.productName, cost: product.cost, sellerName: product.sellerName)
+          Expanded(flex: 2,child: GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(productModel : product))
 
-            ],
+              );
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: screenSize.width/3,
+                  child: Align(alignment: Alignment.topLeft,  child: Center(child: Image.network(product.url),
+                  ),
+                  ),
+                ),
+               ProductInformationWidget(productName: product.productName, cost: product.cost, sellerName: product.sellerName)
+
+              ],
+            ),
           ),
           ),
           Expanded(child: Row(

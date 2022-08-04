@@ -60,7 +60,7 @@ void dispose(){
              ],
            ),
          ),
-         UserDetailsBar(offset: offset, userDetails: UserDetailsModel(name: "Ajay", address: "somewhere"),)
+         UserDetailsBar(offset: offset,)
        ],
      )
     );

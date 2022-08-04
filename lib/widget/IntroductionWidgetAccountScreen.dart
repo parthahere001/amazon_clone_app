@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../model/user_details_model.dart';
+import '../providers/user_details_provider.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 
@@ -8,6 +11,8 @@ class IntroductionWidgetAccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserDetailsModel userDetailsModel =
+        Provider.of<UserDetailsProvider>(context).userDetails;
     return Container(
       height: kAppBarHeight / 2,
       decoration: const BoxDecoration(gradient:
@@ -34,7 +39,7 @@ class IntroductionWidgetAccountScreen extends StatelessWidget {
                 TextSpan(text: "Hello, ",
                   style: TextStyle(
                       color: Colors.grey[800], fontSize: 27),),
-                TextSpan(text: "Ajay",
+                TextSpan(text: "${userDetailsModel.name}",
                   style: TextStyle(color: Colors.grey[800],
                       fontSize: 27,
                       fontWeight: FontWeight.bold),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/screens/results_screen.dart';
 import 'package:niel/utils/constants.dart';
 
 
@@ -9,7 +10,12 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> ResultsScreen(query: categoriesList[index],
+        ),
+        ),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(color: Colors.white,
           borderRadius: BorderRadius.circular(7),

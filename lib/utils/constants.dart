@@ -3,6 +3,7 @@ import 'package:niel/screens/account_screen.dart';
 import 'package:niel/screens/cart_screen.dart';
 import 'package:niel/screens/home_screen.dart';
 
+import '../model/product_model.dart';
 import '../screens/more_screen.dart';
 import '../widget/simple_product_widget.dart';
 
@@ -58,15 +59,20 @@ const List<String> adItemNames = [
   "Pay Bills"
 ];
 List<Widget> testChildren = [
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-
+  SimpleProductWidget(productModel: ProductModel(
+      url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg",
+      productName: "Black Shoes",
+      cost: 500.30,
+      discount: 0,
+      uid: "gahgjhagjhaghga",
+      sellerName: "ShoeWala",
+      sellerUid: "hahjkhajkhajhahkjah",
+      rating: 5,
+      noOfRating: 5),),
+  SimpleProductWidget(productModel: ProductModel(url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg", productName: "Black Shoes", cost: 500.30, discount: 0, uid: "gahgjhagjhaghga", sellerName: "ShoeWala", sellerUid: "hahjkhajkhajhahkjah",rating: 5, noOfRating: 5),),
+  SimpleProductWidget(productModel: ProductModel(url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg", productName: "Black Shoes", cost: 500.30, discount: 0, uid: "gahgjhagjhaghga", sellerName: "ShoeWala", sellerUid: "hahjkhajkhajhahkjah",rating: 5, noOfRating: 5),),
+  SimpleProductWidget(productModel: ProductModel(url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg", productName: "Black Shoes", cost: 500.30, discount: 0, uid: "gahgjhagjhaghga", sellerName: "ShoeWala", sellerUid: "hahjkhajkhajhahkjah",rating: 5, noOfRating: 5),),
+  SimpleProductWidget(productModel: ProductModel(url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg", productName: "Black Shoes", cost: 500.30, discount: 0, uid: "gahgjhagjhaghga", sellerName: "ShoeWala", sellerUid: "hahjkhajkhajhahkjah",rating: 5, noOfRating: 5),),
 ];
 
 
@@ -76,6 +82,8 @@ AccountScreen(),
 CartScreen(),
   MoreScreen(),
 ];
+
+List<String> keysOfRating = ["Bad", "Poor", "Average", "Good", "Excellent"];
 
 //Dont even attemp to scroll to the end of this manually lmao
 const String amazonLogo =

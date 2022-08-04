@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:niel/model/user_details_model.dart';
+import 'package:niel/providers/user_details_provider.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/utils/constants.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/utils.dart';
 
 
 class UserDetailsBar extends StatelessWidget {
   final double offset;
-  final UserDetailsModel userDetails;
-  const UserDetailsBar({Key? key, required this.offset, required this.userDetails}) : super(key: key);
+
+  const UserDetailsBar({Key? key, required this.offset, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final utils = Utils();
     Size screenSize = utils.getScreenSize();
+    UserDetailsModel userDetails = Provider.of<UserDetailsProvider>(context).userDetails;
     return Positioned(
       top: -offset/2,
       child: Container(

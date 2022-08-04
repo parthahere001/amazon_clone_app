@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:niel/model/user_details_model.dart';
+import 'package:niel/providers/user_details_provider.dart';
 import 'package:niel/utils/constants.dart';
 import 'package:niel/widget/IntroductionWidgetAccountScreen.dart';
 import 'package:niel/widget/account_screen_app_bar.dart';
 import 'package:niel/widget/custom_main_button.dart';
 import 'package:niel/widget/products_showcase_list_view.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/color_themes.dart';
 import '../utils/utils.dart';
@@ -21,6 +24,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     final utils = Utils();
     Size screenSize = utils.getScreenSize();
+
     return Scaffold(backgroundColor: Colors.white,
       appBar: AccountScreenAppBar(),
       body: SingleChildScrollView(
