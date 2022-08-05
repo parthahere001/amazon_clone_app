@@ -53,7 +53,7 @@ const List<String> smallAds = [
 ];
 
 const List<String> adItemNames = [
-  "Amazon Pay",
+  "Pay",
   "Recharge",
   "Rewards",
   "Pay Bills"

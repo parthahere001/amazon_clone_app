@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:niel/model/user_details_model.dart';
 import 'package:niel/providers/user_details_provider.dart';
+import 'package:niel/screens/sell_screen.dart';
 import 'package:niel/utils/constants.dart';
 import 'package:niel/widget/IntroductionWidgetAccountScreen.dart';
 import 'package:niel/widget/account_screen_app_bar.dart';
@@ -47,7 +48,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 Text("Sell",style: TextStyle(color: Colors.black),),
                     color: Colors.yellow,
                     isLoading: false,
-                    onPressed: (){}
+                    onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SellScreen()));
+                    }
                 ),
               ),
 

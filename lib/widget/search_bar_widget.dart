@@ -28,7 +28,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 30,
+            height: 23,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,7 +38,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                 Navigator.pop(context);
               }, icon: const Icon(Icons.arrow_back)) : Container(),
               SizedBox(
-                width: screenSize.width * 0.7,
+                width: screenSize.width * 0.73,
                 child: Container(
                   decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 8, spreadRadius: 1, offset: Offset(0, 5),), ]),
                   child: TextField(

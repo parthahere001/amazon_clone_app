@@ -51,10 +51,10 @@ class AmazonClone extends StatelessWidget {
 
 
 
-            //return const ScreenLayout();//ElevatedButton(onPressed: () { FirebaseAuth.instance.signOut();}, child: const Text("Sign-Out"));
+            return const ScreenLayout();//ElevatedButton(onPressed: () { FirebaseAuth.instance.signOut();}, child: const Text("Sign-Out"));
            //return ResultsScreen(query: "wwe");
            // return ProductScreen(productModel:  ProductModel(url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg", productName: "Black Shoes", cost: 500.30, discount: 0, uid: "gahgjhagjhaghga", sellerName: "ShoeWala", sellerUid: "hahjkhajkhajhahkjah",rating: 5, noOfRating: 5));
-            return const SellScreen();
+            //return const SellScreen();
 
 
 

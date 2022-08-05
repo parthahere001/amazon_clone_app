@@ -118,7 +118,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   Widget getSmallAdsFromIndex(int index, double height) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
         height: height,
         width: height,
@@ -140,7 +140,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.network(smallAds[index], height: 45,),
+              Image.network(smallAds[index], height: 35,),
               const SizedBox(height: 5,),
               Text(adItemNames[index])
             ],
