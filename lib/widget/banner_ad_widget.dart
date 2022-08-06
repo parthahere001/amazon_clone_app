@@ -74,29 +74,33 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       child: Column(
         children: [
           // Image with gradient
-          Stack(
-            children: [
-            Image.network(
-            largeAds[currentAd],
-            width: double.infinity,
-          ),
-              Positioned(
-                bottom: 0,
-                child: Container(
-                  width: screenSize.width,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [backgroundColor,
-                        backgroundColor.withOpacity(0),
-                      ],
-                    )
+          SizedBox(
+            height: screenSize.height/4.8,
+            width: screenSize.width,
+            child: Stack(
+              children: [
+              Image.network(
+              largeAds[currentAd],
+              width: double.infinity,
+            ),
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: screenSize.width,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [backgroundColor,
+                          backgroundColor.withOpacity(0),
+                        ],
+                      )
+                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
           Container(
             color: backgroundColor, width: screenSize.width, height: smallAdHeight,
