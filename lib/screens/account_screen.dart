@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:niel/model/user_details_model.dart';
 import 'package:niel/providers/user_details_provider.dart';
@@ -36,10 +37,12 @@ class _AccountScreenState extends State<AccountScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomMainButton(child:
-                Text("Sign In", style: TextStyle(color: Colors.black),),
+                Text("Sign Out", style: TextStyle(color: Colors.black),),
                     color: Colors.orange,
                     isLoading: false,
-                    onPressed: (){}
+                    onPressed: (){
+                      FirebaseAuth.instance.signOut();
+                    }
                 ),
               ),
               Padding(

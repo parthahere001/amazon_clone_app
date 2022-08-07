@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class Utils{
         content: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(content),
+            Text(content, maxLines: 1, overflow: TextOverflow.clip,),
           ],
         )
     ),
@@ -29,6 +30,11 @@ class Utils{
     ImagePicker picker = ImagePicker();
     XFile? file = await picker.pickImage(source: ImageSource.gallery);
       return file!.readAsBytes();
+  }
+
+  String getUid () {
+    return (100000 + Random().nextInt(10000)).toString();
+
   }
 
   }

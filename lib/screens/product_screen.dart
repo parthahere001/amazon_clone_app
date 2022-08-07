@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:niel/model/product_model.dart';
 import 'package:niel/model/review_model.dart';
@@ -5,6 +6,7 @@ import 'package:niel/utils/constants.dart';
 import 'package:niel/widget/cost_widget.dart';
 import 'package:niel/widget/custom_main_button.dart';
 import 'package:niel/widget/custom_simple_rounded_button.dart';
+import 'package:niel/widget/loading_widget.dart';
 import 'package:niel/widget/rating_star_widget.dart';
 import 'package:niel/widget/review_dialog.dart';
 import 'package:niel/widget/review_widget.dart';
@@ -90,9 +92,24 @@ class _ProductScreenState extends State<ProductScreen> {
                  ),
                   SizedBox(
                     height: screenSize.height/1.9,
-                    child: ListView.builder(itemCount: 10,  itemBuilder: (context, index) {
-                      return ReviewWidget(review: ReviewModel(senderName: "Rick", description: "Nice", rating: 4));
-                    }),
+                    child: StreamBuilder(
+                      stream: FirebaseFirestore.instance.collection("products").doc(widget.productModel.uid).collection("reviews").snapshots(),
+                      builder: (context, AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>> snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting)
+                          {
+                            return LoadingWidget();
+                          }
+                        else
+                          {
+                            return ListView.builder(itemCount: snapshot.data!.docs.length, itemBuilder: (context, index) {
+                           ReviewModel model = ReviewModel.getModelFromJson(json:
+                           snapshot.data!.docs[index].data(),
+                           );
+                              return ReviewWidget(review: model);
+                            });
+                          }
+                      },
+                    )
                   )
 
                 ],
