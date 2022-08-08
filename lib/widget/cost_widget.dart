@@ -13,7 +13,7 @@ class CostWidget extends StatelessWidget {
     String j;
     if (((cost - cost.toInt()).toString()).length<4)
       {
-        j= ((cost - cost.toInt()).toString()).substring(1,3)+'0';
+        j= '${((cost - cost.toInt()).toString()).substring(1,3)}0';
       }
     else
       {
@@ -26,7 +26,7 @@ class CostWidget extends StatelessWidget {
           style: TextStyle(
             color: color,
             fontSize: 10,
-        fontFeatures: [ FontFeature.superscripts(),
+        fontFeatures: const [ FontFeature.superscripts(),
       ],
         ),),
         Text(cost.toInt().toString(), style: TextStyle(fontSize: 25, color: color, fontWeight: FontWeight.w800),),
@@ -35,7 +35,7 @@ class CostWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 10,
             color: color,
-            fontFeatures: [ FontFeature.superscripts(),
+            fontFeatures: const [ FontFeature.superscripts(),
             ],
           ),),
       ],

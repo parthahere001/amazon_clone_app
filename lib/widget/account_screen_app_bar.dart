@@ -7,7 +7,7 @@ import '../utils/utils.dart';
 class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget{
   @override
   Size preferredSize;
-   AccountScreenAppBar({Key? key}) : preferredSize=Size.fromHeight(kAppBarHeight),  super(key: key);
+   AccountScreenAppBar({Key? key}) : preferredSize=const Size.fromHeight(kAppBarHeight),  super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget{
     return Container(
       height: kAppBarHeight+20,
       width: screenSize.width,
-      decoration: BoxDecoration(gradient:
+      decoration: const BoxDecoration(gradient:
       LinearGradient(
           colors: backgroundGradient,
           begin: Alignment.centerLeft,

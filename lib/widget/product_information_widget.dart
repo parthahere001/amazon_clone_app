@@ -46,7 +46,7 @@ class ProductInformationWidget extends StatelessWidget {
             child: RichText(text: TextSpan(children: [
               TextSpan(text: "Sold By ", style: TextStyle(
                 color: Colors.grey[700], fontSize: 14,
-              ),), TextSpan(text: sellerName, style: TextStyle(
+              ),), TextSpan(text: sellerName, style: const TextStyle(
                 color: activeCyanColor, fontSize: 14,
               ),),
             ]),),

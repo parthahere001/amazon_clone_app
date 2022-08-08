@@ -35,7 +35,7 @@ class CategoryWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(categoriesList[index], style: TextStyle(fontWeight: FontWeight.w500, letterSpacing: 0.5),),
+                    child: Text(categoriesList[index], style: const TextStyle(fontWeight: FontWeight.w500, letterSpacing: 0.5),),
                   ),
                 ],
               )),
