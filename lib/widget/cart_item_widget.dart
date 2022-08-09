@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:niel/model/product_model.dart';
+import 'package:niel/resources/cloudfirestore_methods.dart';
 import 'package:niel/screens/product_screen.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/widget/custom_square_button.dart';
@@ -68,7 +69,10 @@ class CartItemWidget extends StatelessWidget {
                   dimension: 40),
               CustomSquareButton(child:
               Icon(Icons.add),
-                  onPressed: () {},
+                  onPressed: () async {
+                await CloudFirestoreClass()
+                    .addProductToCart(productModel: ProductModel(url: product.url, productName: product.productName, cost: product.cost, discount: product.discount, uid: utils.getUid(), sellerName: product.sellerName, sellerUid: product.sellerUid, rating: product.rating, noOfRating: product.noOfRating));
+                  },
                   color: backgroundColor,
                   dimension: 40),
             ],
@@ -82,7 +86,9 @@ class CartItemWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CustomSimpleRoundedButton(onPressed: () {}, text: "Delete",),
+                    CustomSimpleRoundedButton(onPressed: () async {
+                      CloudFirestoreClass().deleteProductFromCart(uid: product.uid);
+                    }, text: "Delete",),
                     SizedBox(width: 7,),
                     CustomSimpleRoundedButton(onPressed: () {}, text: "Save For Later",),
                   ],

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:niel/model/product_model.dart';
 import 'package:niel/model/review_model.dart';
+import 'package:niel/resources/cloudfirestore_methods.dart';
 import 'package:niel/utils/constants.dart';
 import 'package:niel/widget/cost_widget.dart';
 import 'package:niel/widget/custom_main_button.dart';
@@ -12,8 +13,10 @@ import 'package:niel/widget/review_dialog.dart';
 import 'package:niel/widget/review_widget.dart';
 import 'package:niel/widget/search_bar_widget.dart';
 import 'package:niel/widget/user_details_bar.dart';
+import 'package:provider/provider.dart';
 
 import '../model/user_details_model.dart';
+import '../providers/user_details_provider.dart';
 import '../utils/color_themes.dart';
 import '../utils/utils.dart';
 
@@ -29,6 +32,8 @@ class _ProductScreenState extends State<ProductScreen> {
   Expanded spaceThingy = Expanded(child: Container());
   @override
   Widget build(BuildContext context) {
+    bool isLoading1 = false;
+    bool isLoading2 = false;
     final utils = Utils();
     Size screenSize = utils.getScreenSize();
     return SafeArea(child:
@@ -80,12 +85,32 @@ class _ProductScreenState extends State<ProductScreen> {
                    spaceThingy,
                    CostWidget(color: Colors.black, cost: widget.productModel.cost),
                    spaceThingy,
-                   CustomMainButton(child: Text("Buy Now", style: TextStyle(color: Colors.black),), color: Colors.orange, isLoading: false, onPressed: () {}),
+                   CustomMainButton(child: Text("Buy Now", style: TextStyle(color: Colors.black),), color: Colors.orange, isLoading: isLoading1, onPressed: () async {
+                     setState(() {
+                       isLoading1=true;
+                     });
+                     await CloudFirestoreClass().addProductsToOrders(model: widget.productModel, userDetails: Provider.of<UserDetailsProvider>(context, listen: false).userDetails);
+                     utils.showSnackBar(context, "Products added to your orders");
+                     setState(() {
+                       isLoading1=false;
+                     });
+                   }),
                    spaceThingy,
-                   CustomMainButton(child: Text("Add To Cart", style: TextStyle(color: Colors.black),), color: Colors.yellow, isLoading: false, onPressed: () {}),
+
+                   CustomMainButton(child: Text("Add To Cart", style: TextStyle(color: Colors.black),), color: Colors.yellow, isLoading: isLoading2, onPressed: () async {
+                     setState(() {
+                       isLoading2=true;
+                     });
+                    await CloudFirestoreClass().addProductToCart(productModel: widget.productModel);
+                    utils.showSnackBar(context, "Added To Cart");
+                     setState(() {
+                       isLoading2=false;
+                     });
+                   }),
                    spaceThingy,
                    CustomSimpleRoundedButton(onPressed: () {
-                     showDialog(context: context, builder: (context) => ReviewDialog());
+                     showDialog(context: context, builder: (context) => ReviewDialog(productUid: widget.productModel.uid,));
+
                    }, text: "Add a review for this product"),
                  ]
                  ),

@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:niel/widget/loading_widget.dart';
 import 'package:niel/widget/results_widget.dart';
 import 'package:niel/widget/search_bar_widget.dart';
 
@@ -37,20 +39,22 @@ class ResultsScreen extends StatelessWidget {
             ),
           ),
      Expanded(
-       child:
-          GridView.builder(itemCount: 9, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio : 2/3), itemBuilder: (context,index) {
-            return ResultsWidget(product: ProductModel(
-                url: "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/179baa27e8be4fe8bac6ad2100915371_9366/galaxy-5-shoes.jpg",
-                productName: "Black Shoes",
-                cost: 500.30,
-                discount: 0,
-                uid: "gahgjhagjhaghga",
-                sellerName: "ShoeWala",
-                sellerUid: "hahjkhajkhajhahkjah",
-                rating: 3,
-                noOfRating: 5),);
-          }),
-    )
+       child: FutureBuilder(
+         future: FirebaseFirestore.instance.collection("products").where("productName", isGreaterThanOrEqualTo: query).get(),
+           builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+           if (snapshot.connectionState == ConnectionState.waiting)
+             {
+               return LoadingWidget();
+             }
+           else
+             {
+              return GridView.builder(itemCount: snapshot.data!.docs.length, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio : 2/3), itemBuilder: (context,index) {
+                ProductModel product = ProductModel.getModelFromJson(json: snapshot.data!.docs[index].data());
+                 return ResultsWidget(product: product);
+
+              });
+             }
+           }))
         ],
       ),
     );

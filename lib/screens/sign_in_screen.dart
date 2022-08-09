@@ -88,7 +88,13 @@ bool isLoading = false;
                              }
                              else
                                {
-                                 utils.showSnackBar(context, output);
+                                 if (output.length<12) {
+                                   utils.showSnackBar(context, output);
+                                 }
+                                 else {
+                                   utils.showSnackBar(
+                                       context, "Some error occured");
+                                 }
                                }
                             },child: const Text("Sign-In", style: TextStyle(letterSpacing: 0.6, color: Colors.black),),),),
 
