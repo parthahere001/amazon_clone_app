@@ -95,6 +95,7 @@ Future uploadReviewToDatabase({
 required ReviewModel model,
 }) async {
   await firebaseFirestore.collection("products").doc(productUid).collection("reviews").add(model.getJson());
+  await changeAverageRating(productUid: productUid, reviewModel: model);
 }
 
 
@@ -123,6 +124,14 @@ Future addProductsToOrders ({required ProductModel model, required UserDetailsMo
 Future sendOrderRequest({required ProductModel model, required UserDetailsModel userDetails}) async {
     OrderRequestModel orderRequestModel = OrderRequestModel(orderName: model.productName, buyersAddress: userDetails.address);
     await firebaseFirestore.collection("users").doc(model.sellerUid).collection("orderRequests").add(orderRequestModel.getJson());
+
+}
+Future changeAverageRating ({required String productUid, required ReviewModel reviewModel}) async {
+  DocumentSnapshot snapshot = await  firebaseFirestore.collection("products").doc(productUid).get();
+  ProductModel model = ProductModel.getModelFromJson(json: snapshot.data() as dynamic);
+  int currentRating = model.rating;
+  int newRating = (currentRating+reviewModel.rating)~/2;
+  await  firebaseFirestore.collection("products").doc(productUid).update({"rating": newRating});
 
 }
 }

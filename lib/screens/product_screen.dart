@@ -77,7 +77,8 @@ class _ProductScreenState extends State<ProductScreen> {
                      padding: const EdgeInsets.all(15),
                      child: Container(
                          height: screenSize.height/3,
-                       constraints: BoxConstraints(maxHeight: screenSize.height/3),
+
+                       constraints: BoxConstraints(maxHeight: screenSize.height/3,  maxWidth: screenSize.width/2,),
                        child:  Image.network(widget.productModel.url,)
 
                      ),

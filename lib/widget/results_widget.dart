@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:niel/model/product_model.dart';
+import 'package:niel/screens/product_screen.dart';
 import 'package:niel/utils/color_themes.dart';
 import 'package:niel/widget/cost_widget.dart';
 import 'package:niel/widget/rating_star_widget.dart';
@@ -17,6 +18,7 @@ class ResultsWidget extends StatelessWidget {
     Size screenSize = utils.getScreenSize();
     return GestureDetector(
       onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductScreen(productModel: product)));
 
       },
       child: Padding(
@@ -26,6 +28,7 @@ class ResultsWidget extends StatelessWidget {
           children: [
             SizedBox(
               width: screenSize.width/3,
+
                 child: Image.network(product.url),
             ),
             Padding(

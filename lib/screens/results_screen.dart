@@ -48,7 +48,7 @@ class ResultsScreen extends StatelessWidget {
              }
            else
              {
-              return GridView.builder(itemCount: snapshot.data!.docs.length, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio : 2/3), itemBuilder: (context,index) {
+              return GridView.builder(itemCount: snapshot.data!.docs.length, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio : 2.2/3.8), itemBuilder: (context,index) {
                 ProductModel product = ProductModel.getModelFromJson(json: snapshot.data!.docs[index].data());
                  return ResultsWidget(product: product);
 

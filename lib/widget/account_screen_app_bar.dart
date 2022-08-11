@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niel/screens/search_screen.dart';
 import 'package:niel/utils/constants.dart';
 
 import '../utils/color_themes.dart';
@@ -33,7 +34,9 @@ child: Row(
       child: Row(
         children: [
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_outlined, color: Colors.black,),),
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search_outlined, color: Colors.black,),),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen()));
+          }, icon: const Icon(Icons.search_outlined, color: Colors.black,),),
 
 
         ],
