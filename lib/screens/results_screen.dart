@@ -10,8 +10,10 @@ class ResultsScreen extends StatelessWidget {
   final String query;
   const ResultsScreen({Key? key, required this.query}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: SearchBarWidget(isReadOnly: false, hasBackButton: true,),
       body: Column(
@@ -41,6 +43,7 @@ class ResultsScreen extends StatelessWidget {
      Expanded(
        child: FutureBuilder(
          future: FirebaseFirestore.instance.collection("products").where("productName", isGreaterThanOrEqualTo: query).get(),
+
            builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
            if (snapshot.connectionState == ConnectionState.waiting)
              {
